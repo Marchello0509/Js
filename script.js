@@ -618,6 +618,9 @@ console.log(filteredProducts);
 */
 const productsListEl = document.querySelector('.productsList')
 const ulEl = document.querySelector('#ul')
+const btnDel = document.querySelector('#btn')
+const btnDel2 = document.querySelector('#btn2')
+const btnDel3 = document.querySelector('#btn3')
 
 
 const products = [ 
@@ -657,17 +660,15 @@ const ul = [
     }
 ]
 
+const HandClick = () => {
+    alert("Delete!")
+    console.log('You delete this item!')
+    window.location.href = 'Delete.html';
+}
 
-
-products.forEach(productItem => { 
-    productsListEl.innerHTML += `
-    <li class="productsList_item">
-        <h2>${productItem.name}</h2>
-        <h3>${productItem.price}</h3>
-        <button id="btn">Delete</button>
-    </li>
-    `
-})
+btnDel.addEventListener('click', HandClick)
+btnDel2.addEventListener('click', HandClick)
+btnDel3.addEventListener('click', HandClick)
 
 ul.forEach(ulItem => {
     ulEl.innerHTML += `

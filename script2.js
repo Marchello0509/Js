@@ -1,17 +1,7 @@
-const btnEl = {
-    btn: document.querySelector('#btn')
-}
+// Находим кнопку по идентификатору "btn"
+  const button = document.getElementById("btn");
 
-btnEl.btn.addEventListener('click', () => { 
-    alert="Delete!"
-})
-
-products.forEach(productItem => { 
-    productsListEl.innerHTML += `
-    <li class="productsList_item">
-        <h2>${productItem.name}</h2>
-        <h3>${productItem.price}</h3>
-        <button id="btn">Delete</button>
-    </li>
-    `
-})
+  // Добавляем обработчик события на кнопку
+  button.addEventListener("click", function() {
+    // Выводим слово "Delete" в диалоговом окне Alert
+    alert("Delete");
