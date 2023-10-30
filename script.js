@@ -485,5 +485,196 @@ const printAllUser = (usersArr) => {
 }
 
 printAllUser(usersData)
-*/
 
+const backEndInfo = { 
+    login: "admin",
+    password: "qwert"
+}
+
+
+const commonInfo = {
+    name: "Alex",
+    email: "example@gmail.com"
+}
+
+const posts = [ 
+    { 
+        id: 1, 
+        text: "Some text"
+    },
+    {
+        id: 2,
+        text: "Some text 2"
+    }
+]
+
+const age = 20
+
+
+const allInfo = {
+    ...backEndInfo,
+    ...commonInfo,
+    posts: {
+        ...posts
+    },
+    countPosts: posts.length,
+    age
+}
+
+console.log(allInfo)
+
+const address = { 
+    city:"Kharkiv",
+    street: "Main",
+    postCode: 24015
+}
+
+const {city, street, postCode} = address
+
+console.log(`City: ${city} | Street: ${street} | Post code: ${postCode}`)
+const arr = [1, 2, 3]
+
+let sum = 0
+let min = arr[0]
+let max = arr[0]
+
+arr.forEach((arr) => {
+    sum += arr
+    if (arr < min) {
+        min = arr
+    } else if (arr > max) {
+        max = arr
+    }
+})
+
+console.log(sum, min, max)
+
+const arr = [2,3,4,124,10]
+
+let sum = 0
+let min = {
+    value: arr[0],
+    index: 0
+}
+let max = {
+    value: arr[0],
+    index: 0
+}
+arr.forEach((item, index) => { 
+    sum += item
+    if (item < min.value) { 
+        min.value = item
+        min.index = index
+    } 
+    if (item > max.value) { 
+        max.value = item
+        max.index = index
+    }
+})
+
+console.log(sum, min, max)
+
+
+const productStore = [ 
+    { 
+        id: '12ew',
+        name: 'TV',
+        price: 3000
+    }, 
+    {
+        id: '14efw',
+        name: 'Phone',
+        price: 4000
+    },
+    {
+        id: 'V1StGXR8_Z5jdHi6B-myT',
+        name: 'PC',
+        price: 5000
+    }
+]
+
+const deleteByPrice = (maxPrice) => { 
+    const newArr = productStore.filter((productItem) => { 
+        if (productItem.price < maxPrice) { 
+            return productItem
+        }
+    })
+    return newArr
+}
+
+
+const deleteById = () => { 
+    const newArr = productStore.filter((productItem) => {
+        if (productItem.id.length <= 5) {
+            return productItem;
+        }
+    })
+    return newArr
+}
+
+const filteredProducts = deleteById(5);
+
+console.log(filteredProducts);
+*/
+const productsListEl = document.querySelector('.productsList')
+const ulEl = document.querySelector('#ul')
+
+
+const products = [ 
+    { 
+        id: 1,
+        name: "TV",
+        price: 3000
+    }, 
+    {
+        id: 2,
+        name: "PC",
+        price: 4000
+    },
+    {
+        id: 3,
+        name: "Phone",
+        price: 5000
+    }
+]
+
+const ul = [ 
+    {
+        link: "/",
+        text: "Main"
+    },
+    {
+        link: "/",
+        text: "Products"
+    },
+    {
+        link: "/",
+        text: "Buy"
+    },
+    {
+        link: "/",
+        text: "Contacts"
+    }
+]
+
+
+
+products.forEach(productItem => { 
+    productsListEl.innerHTML += `
+    <li class="productsList_item">
+        <h2>${productItem.name}</h2>
+        <h3>${productItem.price}</h3>
+        <button id="btn">Delete</button>
+    </li>
+    `
+})
+
+ul.forEach(ulItem => {
+    ulEl.innerHTML += `
+    <li class="head_nav_ul_li">
+        <a class="head_nav_ul_li_a" href="${ulItem.link}">
+            ${ulItem.text}
+        </a>
+    </li>
+    `
+})
